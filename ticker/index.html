@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <!--
     <script src="ticker.js"></script>
-    
+    -->
 </head>
 <body>
+    
+      <script type="text/javascript">
+/*
+Почему не увеличивается. Как исправить?
+
+function Ticker() {
+this._i = 0
+};
+Ticker.prototype = {
+ tick: function() {
+ console.log(this._i++);
+ }
+};
+var ticker = new Ticker();
+setInterval(ticker.tick, 1000);
+*/
+
+function Ticker() {
+    this._i = 0
+}
+
+Ticker.prototype ={
+    tick : function() {
+  var DivTag = document.getElementById("ticker");
+  DivTag.innerHTML = this._i++;      
+    }
+};
+
+let ticker = new Ticker();
+
+setInterval(ticker.tick.bind(ticker), 1000);    
+  </script>
+  <div id="ticker"></div>
 
 </body>
 </html>
